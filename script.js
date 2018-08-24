@@ -1,23 +1,33 @@
 import 'shoelace-css/dist/shoelace.css'
+import './main.css'
 import request from 'superagent'
-
-
 
 getID('submit-button').addEventListener('click', event => {
   event.preventDefault()
+  submitSearch()
+})
 
-  let searchTerms = getID('input_field').value.replace(' ', '+')
+getID('song-list-parent').addEventListener('click', function (event) {
+  if (event.target && event.target.classList.contains('single-result')) {
+    getID('song-audio').src = event.target.dataset.previewUrl
+    getID('song-audio').play()
+  }
+})
+
+function submitSearch () {
+  getID('song-list-parent').innerHTML = ''
+
+  let searchTerms = getID('input_field').value.replace(' ', '+').trim()
   request.get(`https://itunes.apple.com/search?term=${searchTerms}`)
     .then(response => JSON.parse(response.text))
     .then(body => {
       let results = (body.results)
-      // console.log(results[0].trackName, 'results.result')
       for (let result of results) {
-        console.log(result)
         songDOM(result)
       }
     })
-})
+}
+
 function getID (id) {
   return document.getElementById(id)
 }
@@ -25,10 +35,11 @@ function getID (id) {
 function songDOM (song) {
   let list = getID('song-list-parent')
   let songLi = createElement('li')
-  songLi.classList.add(`${song.trackId}`)
-  songLi.innerHTML = `<h4>${song.trackName}</h4><p>${song.artistName}</p>``<img src = "${song.artworkUrl100}"/>`
-  image.classList.add('image')
-  image.
+  songLi.dataset.previewUrl = song.previewUrl
+  songLi.classList.add(`single-result`)
+
+  songLi.innerHTML = `<h4>${song.artistName}</h4><img src = "${song.artworkUrl100}"/><p>${song.trackName}</p>`
+
   return list.appendChild(songLi)
 }
 

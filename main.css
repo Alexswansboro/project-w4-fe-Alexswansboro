@@ -2,7 +2,13 @@
     margin-left:2rem;
     margin-top:2rem;
 }
-#parent{
+#parent {
     margin-left:2rem;
     margin-right:2rem;
+}
+ul {
+    list-style: none;
+}
+p {
+    margin-bottom: 0;
 }
