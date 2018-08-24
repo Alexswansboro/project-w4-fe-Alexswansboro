@@ -8,8 +8,10 @@ getID('submit-button').addEventListener('click', event => {
 })
 
 getID('song-list-parent').addEventListener('click', function (event) {
-  if (event.target && event.target.classList.contains('single-result')) {
-    getID('song-audio').src = event.target.dataset.previewUrl
+  console.log(event.target, event.currentTarget)
+  if (event.target && event.target.closest('.single-result')) {
+    var relevantTarget = event.target.closest('.single-result')
+    getID('song-audio').src = relevantTarget.dataset.previewUrl
     getID('song-audio').play()
   }
 })
