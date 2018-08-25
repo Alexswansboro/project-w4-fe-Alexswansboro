@@ -38,7 +38,7 @@ function songDOM (song) {
   let list = getID('song-list-parent')
   let songLi = createElement('li')
   songLi.dataset.previewUrl = song.previewUrl
-  songLi.classList.add(`single-result`)
+  songLi.classList.add(`single-result`, 'col-2')
 
   songLi.innerHTML = `<h4>${song.artistName}</h4><img src = "${song.artworkUrl100}"/><p>${song.trackName}</p>`
 

@@ -1,20 +1,53 @@
+body{
+   background-color: #4392F1
+}
+.button{
+    background-color: #4392F1;
+    border-radius:none;
+}
 #header{
-    margin-left:2rem;
-    margin-top:2rem;
+    margin:2rem 0;
+    text-align: center;
 }
 #parent {
     margin-left:2rem;
     margin-right:2rem;
 }
+#song-audio{
+    background-color: #4392F1;
+    float:right;
+    margin:2rem;
+}
+.input_field{
+    display:block;
+    margin:2rem;
+}
+.button{
+    margin:2rem;
+    background-color:#F72C25;
+   float:left
+}
 ul {
     list-style: none;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: stretch;
+    align-content: stretch;
+    
 }
 p {
-    margin-bottom: 0;
+    text-align:none;
 }
 li{
-    background-color: aquamarine;
-    display:inline-block;
     width:25%;
-
+    text-align: center;
+    /* border:1px solid black; */
+    margin: 1px;
+}
+li:hover{
+    opacity: 1;
+    background-color: #F72C25;
+    box-shadow: 2px 2px black
 }

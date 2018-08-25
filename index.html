@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>All Your Songs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="script.js" defer></script>
@@ -14,10 +14,9 @@
         <form id='form'>
             <input type='text' class='input' id='input_field' placeholder ='Enter'>
             <button type='submit' class='button' id='submit-button'>Submit</button>
+            <audio id="song-audio" controls src="#"></audio>
         </form>
-        <audio id="song-audio" controls src="#"></audio>
-        <ul id = 'song-list-parent'>
-
+        <ul id = 'song-list-parent' class = 'container'>
         </ul>
     </div>
 </body>
